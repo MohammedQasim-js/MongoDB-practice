@@ -11,4 +11,14 @@ mongoose.connection
 beforeEach((done) => {
   mongoose.connection.collections.students.drop();
   done();
+
+  // const { students, comments, articleblogs } = mongoose.connection.collections;
+
+  // students.drop(() => {
+  //   comments.drop(() => {
+  //     articleblogs.drop(() => {
+  //       done();
+  //     });
+  //   });
+  // });
 });

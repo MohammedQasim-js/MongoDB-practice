@@ -15,6 +15,12 @@ const StudentSchema = new Schema({
   // articleCount: Number,
   grade: Number,
   articles: [ArticleSchema],
+  articleBlog: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "articleBlog",
+    },
+  ],
 });
 
 StudentSchema.virtual("articleCount").get(function () {
