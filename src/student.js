@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ArticleSchema = require("./article_schema");
 const Schema = mongoose.Schema;
 
 const StudentSchema = new Schema({
@@ -11,8 +12,14 @@ const StudentSchema = new Schema({
     },
   },
   studentNumber: Number,
-  articleCount: Number,
+  // articleCount: Number,
   grade: Number,
+  articles: [ArticleSchema],
+});
+
+StudentSchema.virtual("articleCount").get(function () {
+  // console.log("Run the getter function!");
+  return this.articles.length;
 });
 
 const Student = mongoose.model("student", StudentSchema);

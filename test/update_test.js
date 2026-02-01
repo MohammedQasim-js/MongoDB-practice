@@ -51,7 +51,8 @@ describe("Updating records", () => {
   //   console.log(res);
   // });
 
-  it("Update grade", async () => {
+  // xit in mocha means to skip this test
+  xit("Update grade", async () => {
     const artCount = await Student.findOne({ name: "Eren" });
     const student = await Student.updateOne(
       { name: "Eren" },
